@@ -74,12 +74,12 @@
 
 ### export — экспортировать задачи в файл
 
-    ./todo export --format=json --out=backup.json
-    ./todo export --format=csv --out=backup.csv
+    ./todo export --format=.json --out=backup.json
+    ./todo export --format=.csv --out=backup.csv
 
 Флаги:
 
-- `--format` — `json` или `csv` (обязательно)
+- `--format` — `.json` или `.csv` (обязательно)
 - `--out` — путь к файлу (обязательно, расширение должно совпадать с форматом)
 
 Вывод:
@@ -130,14 +130,16 @@
 
 ## Структура проекта
 
-    todo-app/
+  todo-app/
     ├── cmd/
     │   └── todo/
     │       └── main.go
     ├── internal/
     │   ├── todo/
     │   │   ├── task.go
-    │   │   └── manager.go
+    │   │   ├── manager.go
+    │   │   ├── validate.go
+    │   │   └── manager_test.go
     │   └── storage/
     │       ├── json_storage.go
     │       └── csv_storage.go
@@ -158,6 +160,6 @@
 
     ./todo delete --id=3
 
-    ./todo export --format=csv --out=tasks.csv
+    ./todo export --format=.csv --out=tasks.csv
 
     ./todo load --file=backup.json
